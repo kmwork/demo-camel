@@ -13,7 +13,7 @@ import javax.annotation.PostConstruct;
 @Slf4j
 public class DatanaCamelConfig {
 
-    @Value("${datana.jms.brokerUrl}")
+    @Value("${datana.jms.broker-url}")
     private String brokerUrl;
 
     @PostConstruct
