@@ -22,10 +22,7 @@ public class RestToMQRoute extends RouteBuilder {
         Map<String, Object> requestHeaders = new HashMap<>();
         requestHeaders.put(Exchange.HTTP_METHOD, "POST");
         requestHeaders.put(Exchange.CONTENT_TYPE, "application/json");
-        String requestBody = """
-                {
-                  "request_id": "b7a9bcfe-cff0-4b25-8c22-cc5422a09eff"
-                }  """;
+        String requestBody = "{ \"request_id\": \"b7a9bcfe-cff0-4b25-8c22-cc5422a09eff\" }";
         CamelContext camelContext = new DefaultCamelContext();
         camelContext.start();
         ProducerTemplate template = camelContext.createProducerTemplate();
