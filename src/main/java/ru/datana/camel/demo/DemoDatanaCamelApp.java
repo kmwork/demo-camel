@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 import ru.datana.camel.demo.config.DatanaCamelConfig;
 import ru.datana.camel.demo.route.MqToKafkaRoute;
+import ru.datana.camel.demo.route.RestToMQRoute;
 
 @Slf4j
 @SpringBootApplication
@@ -59,8 +60,9 @@ public class DemoDatanaCamelApp implements CommandLineRunner {
         //doService("[Step:S7]", new S7SocketForCamelRoute());
 
 
-        //doService("[Step:Rest]", new RestToMQRoute());
+        doService("[Step:Rest]", new RestToMQRoute());
         doService("[Step:ActiveMQ]", new MqToKafkaRoute());
         //doService("[Step:File]", new FileRoute());
+        System.exit(0);
     }
 }
