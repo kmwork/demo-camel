@@ -1,11 +1,9 @@
 package ru.datana.camel.demo.route;
 
 import org.apache.camel.builder.RouteBuilder;
-import org.springframework.stereotype.Component;
 import ru.datana.camel.demo.bean.RestBean;
 import ru.datana.camel.demo.bean.RestPostTransformerBean;
 
-@Component
 public class RestToMQRoute extends RouteBuilder {
 
     @Override

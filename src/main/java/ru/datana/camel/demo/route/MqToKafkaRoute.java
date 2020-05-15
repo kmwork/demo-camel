@@ -1,9 +1,7 @@
 package ru.datana.camel.demo.route;
 
 import org.apache.camel.builder.RouteBuilder;
-import org.springframework.stereotype.Component;
 
-@Component
 public class MqToKafkaRoute extends RouteBuilder {
 
     @Override
