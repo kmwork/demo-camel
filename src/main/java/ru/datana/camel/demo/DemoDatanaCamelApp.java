@@ -43,9 +43,9 @@ public class DemoDatanaCamelApp implements CommandLineRunner {
     private void doService(String prefixLog, RouteBuilder routeBuilder) {
         try {
             log.info(prefixLog + " start");
-            camelContext.getRoutes().clear();
             camelContext.addRoutes(routeBuilder);
             doSleep();
+            camelContext.removeRoute(routeBuilder.getClass().getSimpleName());
         } catch (Exception e) {
             log.error(prefixLog + " error", e);
         } finally {
