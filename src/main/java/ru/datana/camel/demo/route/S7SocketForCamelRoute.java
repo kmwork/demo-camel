@@ -1,9 +1,8 @@
 package ru.datana.camel.demo.route;
 
 import org.apache.camel.builder.RouteBuilder;
-import org.springframework.stereotype.Component;
+import ru.datana.camel.demo.bean.S7Bean;
 
-@Component
 public class S7SocketForCamelRoute extends RouteBuilder {
 
     @Override
