@@ -36,14 +36,14 @@ public class SampleAutowiredAmqRoute extends RouteBuilder {
 
         from("timer://bar?fixedRate=true&delay=0&period=10000")
                         .setBody(constant(responseBodyJsonFromRest))
-                        .log("Send-ActiveMQ:")
+                        .log("[Send-ActiveMQ]: ${body}")
                         .to("activemq:demo-datana");
 
     }
 
 
         public  String readFile() throws IOException {
-        File file = new File("/home/lin/work-lanit/tools-adapters-demoExampleIntegrationAdapter/Integration Adapters/demo-example/from-rest-to-activemq/src/main/resources/request-example.json");
+        File file = new File("/home/lin/work-lanit/demo-datana-camel/demo-from-rest-to-activemq/src/main/resources/request-example.json");
         return FileUtils.readFileToString(file, StandardCharsets.UTF_8);
     }
 }
