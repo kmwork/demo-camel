@@ -20,8 +20,8 @@ public class DemoDatanaCamelApp {
     public static void main(String[] args) throws Exception {
         SimpleRegistry registry = new SimpleRegistry();
         registry.bind("s7Bean", S7Bean.class);
-        registry.bind("S7PostProcessorBean", S7PostProcessorBean.class);
-        registry.bind("RestBean", RestBean.class);
+        registry.bind("s7PostProcessorBean", S7PostProcessorBean.class);
+        registry.bind("restBean", RestBean.class);
 
         doS7(registry);
         doRest(registry);
