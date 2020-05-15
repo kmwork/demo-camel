@@ -2,6 +2,7 @@ package ru.datana.camel.demo;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.camel.CamelContext;
+import org.apache.camel.Route;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -45,7 +46,8 @@ public class DemoDatanaCamelApp implements CommandLineRunner {
             log.info(prefixLog + " start");
             camelContext.addRoutes(routeBuilder);
             doSleep();
-            camelContext.removeRoute(routeBuilder.getClass().getSimpleName());
+            for (Route r : camelContext.getRoutes())
+                camelContext.removeRoute(r.getId());
         } catch (Exception e) {
             log.error(prefixLog + " error", e);
         } finally {
