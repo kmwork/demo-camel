@@ -20,13 +20,11 @@ import ru.datana.camel.demo.route.S7SocketForCamelRoute;
 public class DemoDatanaCamelApp implements CommandLineRunner {
     private static final long SLEEP_MS = 30 * 1000;
 
-
     @Autowired
     private CamelContext camelContext;
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(DemoDatanaCamelApp.class, args);
-
     }
 
     private void doSleep() {
@@ -70,7 +68,8 @@ public class DemoDatanaCamelApp implements CommandLineRunner {
         // работа с файлами
         doService("[Step:File]", new FileRoute());
 
-        //грубый выход из приложения
+        //выход из приложения
+        camelContext.shutdown();
         System.exit(0);
     }
 }

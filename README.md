@@ -1,4 +1,8 @@
 # Примеры работы с Apache Camel
+
+### Тех задание
+сделано в рамка задачи в JIRA - https://jira.dds.lanit.ru/browse/NKR-386
+
 ### для сборки
 `mvn clean compile`
 
