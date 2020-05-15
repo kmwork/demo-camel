@@ -9,7 +9,7 @@ public class RestToMQRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
 
-        from("timer://bar?fixedRate=true&delay=0&period=10000")
+        from("timer://RestToMQRoute?fixedRate=true&delay=0&period=10000")
                 .setHeader("request-id", () -> System.nanoTime())
                 .bean(RestBean.class)
                 .bean(RestPostTransformerBean.class)

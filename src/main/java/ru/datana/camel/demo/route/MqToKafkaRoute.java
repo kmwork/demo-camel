@@ -6,7 +6,8 @@ public class MqToKafkaRoute extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        from("activemq:demo-datana")
+        from("timer://MqToKafkaRoute?fixedRate=true&delay=0&period=10000")
+                .from("activemq:demo-datana")
                 .log("[MqToKafkaRoute: READ] body = ${body}")
                 .to("kafka:demo-datana-kafka");
     }
