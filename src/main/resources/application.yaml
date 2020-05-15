@@ -17,13 +17,9 @@ debug: true
 logging:
   level:
     org:
-      hibernate:
-        engine:
-          transaction: DEBUG
-        SQL: DEBUG
-      springframework: DEBUG
+      camel: INFO
+      springframework: INFO
     ru: DEBUG
-    sql: debug
   pattern:
     console: '%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n'
 

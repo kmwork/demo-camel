@@ -3,7 +3,7 @@ package ru.datana.camel.demo.route;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 import ru.datana.camel.demo.bean.RestBean;
-import ru.datana.camel.demo.bean.S7PostProcessorBean;
+import ru.datana.camel.demo.bean.RestPostTransformerBean;
 
 @Component
 public class RestToMQRoute extends RouteBuilder {
@@ -14,7 +14,7 @@ public class RestToMQRoute extends RouteBuilder {
         from("timer://bar?fixedRate=true&delay=0&period=10000")
                 .setHeader("request-id", () -> System.nanoTime())
                 .bean(RestBean.class)
-                .bean(S7PostProcessorBean.class)
+                .bean(RestPostTransformerBean.class)
                 .log("[Send-ActiveMQ]: ${body}")
                 .to("activemq:demo-datana");
 
