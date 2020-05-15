@@ -6,6 +6,7 @@ import org.apache.camel.Handler;
 import ru.datana.camel.demo.service.S7Api;
 
 import java.io.IOException;
+
 @Slf4j
 public class S7Bean {
 

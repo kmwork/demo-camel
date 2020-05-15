@@ -12,8 +12,9 @@ import java.util.Arrays;
 public class S7Api {
 
     private static String HOST = "172.30.143.30";
+
     public byte[] getDataFromS7() throws IOException {
-        log.info("[S7Api] Подключение к Сименсу : "+HOST);
+        log.info("[S7Api] Подключение к Сименсу : " + HOST);
         S7Connector connector =
                 S7ConnectorFactory
                         .buildTCPConnector()
@@ -24,7 +25,7 @@ public class S7Api {
 
 
         byte[] result = connector.read(DaveArea.DB, 3, 2, 0);
-        log.info("[S7Api] Получены данные: "+Arrays.toString(result));
+        log.info("[S7Api] Получены данные: " + Arrays.toString(result));
         connector.close();
 
         return result;

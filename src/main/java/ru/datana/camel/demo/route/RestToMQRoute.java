@@ -31,9 +31,9 @@ public class RestToMQRoute extends RouteBuilder {
         /*Send Message to ActiveMQ */
 
         from("timer://bar?fixedRate=true&delay=0&period=10000")
-                        .setBody(constant(responseBodyJsonFromRest))
-                        .log("[Send-ActiveMQ]: ${body}")
-                        .to("activemq:demo-datana");
+                .setBody(constant(responseBodyJsonFromRest))
+                .log("[Send-ActiveMQ]: ${body}")
+                .to("activemq:demo-datana");
 
     }
 
