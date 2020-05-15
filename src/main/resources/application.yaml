@@ -19,7 +19,7 @@ debug: true
 logging:
   level:
     org:
-      apache: ${datana.global.log-level}
+      apache:
         camel: ${datana.global.log-level}
         activemq: ${datana.global.log-level}
       springframework: ${datana.global.log-level}
