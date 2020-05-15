@@ -52,38 +52,58 @@ public class DemoDatanaCamelApp {
     }
 
     private static void doRest(SimpleRegistry registry) throws Exception {
-        CamelContext restCamelContext = new DefaultCamelContext(registry);
-        restCamelContext.addRoutes(new RestToMQRoute());
+        try {
+            log.error("[Step:Restfull-WebServices] start");
+            CamelContext restCamelContext = new DefaultCamelContext(registry);
+            restCamelContext.addRoutes(new RestToMQRoute());
 
-        restCamelContext.start();
+            restCamelContext.start();
 
-        doSleep();
+            doSleep();
 
-        restCamelContext.stop();
-
+            restCamelContext.stop();
+        } catch (Exception e) {
+            log.error("[Step:Restfull-WebService] error", e);
+        } finally {
+            log.error("[Step:Restfull-WebService] done");
+        }
     }
 
-    private static void doMQ(SimpleRegistry registry) throws Exception {
-        CamelContext mqCamelContext = new DefaultCamelContext(registry);
-        mqCamelContext.addRoutes(new MqToKafkaRoute());
+    private static void doMQ(SimpleRegistry registry) {
+        try {
+            log.error("[Step:ActiveMQ] start");
+            CamelContext mqCamelContext = new DefaultCamelContext(registry);
+            mqCamelContext.addRoutes(new MqToKafkaRoute());
 
-        mqCamelContext.start();
+            mqCamelContext.start();
 
-        doSleep();
+            doSleep();
 
-        mqCamelContext.stop();
-
+            mqCamelContext.stop();
+        } catch (Exception e) {
+            log.error("[Step:ActiveMQ] error", e);
+        } finally {
+            log.error("[Step:ActiveMQ] done");
+        }
     }
 
-    private static void doS7(SimpleRegistry registry) throws Exception {
-        CamelContext s7CamelContext = new DefaultCamelContext(registry);
-        s7CamelContext.addRoutes(new S7SocketForCamelRoute());
+    private static void doS7(SimpleRegistry registry) {
+        try {
+            log.error("[Step:S7] start");
+            CamelContext s7CamelContext = new DefaultCamelContext(registry);
+            s7CamelContext.addRoutes(new S7SocketForCamelRoute());
 
-        s7CamelContext.start();
+            s7CamelContext.start();
 
-        ProducerTemplate producerTemplate = s7CamelContext.createProducerTemplate();
-        producerTemplate.sendBody("direct:start", "start");
+            ProducerTemplate producerTemplate = s7CamelContext.createProducerTemplate();
+            producerTemplate.sendBody("direct:start", "start");
 
-        s7CamelContext.stop();
+            s7CamelContext.stop();
+
+        } catch (Exception e) {
+            log.error("[Step:S7] error", e);
+        } finally {
+            log.error("[Step:S7] done");
+        }
     }
 }
