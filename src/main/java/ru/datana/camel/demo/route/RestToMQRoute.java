@@ -5,12 +5,8 @@ import org.apache.camel.Exchange;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
-import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,7 +22,10 @@ public class RestToMQRoute extends RouteBuilder {
         Map<String, Object> requestHeaders = new HashMap<>();
         requestHeaders.put(Exchange.HTTP_METHOD, "POST");
         requestHeaders.put(Exchange.CONTENT_TYPE, "application/json");
-        String requestBody = readFile();
+        String requestBody = """
+                {
+                  "request_id": "b7a9bcfe-cff0-4b25-8c22-cc5422a09eff"
+                }  """;
         CamelContext camelContext = new DefaultCamelContext();
         camelContext.start();
         ProducerTemplate template = camelContext.createProducerTemplate();
