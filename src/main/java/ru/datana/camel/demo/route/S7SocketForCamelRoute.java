@@ -13,7 +13,7 @@ public class S7SocketForCamelRoute extends RouteBuilder {
                 .setHeader("request-id", () -> System.nanoTime())
                 .bean(S7Bean.class)
                 .bean(S7PostProcessorBean.class)
-                .log("[Send-ActiveMQ]: ${body}")
+                .log("[S7SocketForCamelRoute: Send-ActiveMQ]: ${body}")
                 .to("activemq:demo-datana");
     }
 

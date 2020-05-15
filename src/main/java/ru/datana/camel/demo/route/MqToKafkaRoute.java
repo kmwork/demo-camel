@@ -9,7 +9,7 @@ public class MqToKafkaRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
         from("activemq:demo-datana")
-                .log("[READ] body = ${body}")
+                .log("[MqToKafkaRoute: READ] body = ${body}")
                 .to("kafka:demo-datana-kafka");
     }
 }

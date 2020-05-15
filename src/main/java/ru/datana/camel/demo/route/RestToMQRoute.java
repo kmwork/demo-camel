@@ -15,7 +15,7 @@ public class RestToMQRoute extends RouteBuilder {
                 .setHeader("request-id", () -> System.nanoTime())
                 .bean(RestBean.class)
                 .bean(RestPostTransformerBean.class)
-                .log("[Send-ActiveMQ]: ${body}")
+                .log("[RestToMQRoute: Send-ActiveMQ]: ${body}")
                 .to("activemq:demo-datana");
 
     }
