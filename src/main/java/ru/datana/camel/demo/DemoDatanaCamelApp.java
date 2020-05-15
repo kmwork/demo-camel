@@ -43,6 +43,7 @@ public class DemoDatanaCamelApp implements CommandLineRunner {
     private void doService(String prefixLog, RouteBuilder routeBuilder) {
         try {
             log.info(prefixLog + " start");
+            camelContext.getRoutes().clear();
             camelContext.addRoutes(routeBuilder);
             doSleep();
         } catch (Exception e) {
