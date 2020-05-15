@@ -2,7 +2,6 @@ package ru.datana.camel.demo.route;
 
 import org.apache.camel.builder.RouteBuilder;
 
-@Component
 public class FileRoute extends RouteBuilder {
 
     @Override
