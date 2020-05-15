@@ -1,6 +1,8 @@
 datana:
   jms:
     broker-url: tcp://172.29.40.42:61616
+  global:
+    log-level: INFO
 camel:
   component:
     kafka:
@@ -17,9 +19,11 @@ debug: true
 logging:
   level:
     org:
-      camel: INFO
-      springframework: INFO
-    ru: DEBUG
+      apache: ${datana.global.log-level}
+        camel: ${datana.global.log-level}
+        activemq: ${datana.global.log-level}
+      springframework: ${datana.global.log-level}
+    ru: debug
   pattern:
     console: '%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n'
 
