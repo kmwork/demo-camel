@@ -6,6 +6,7 @@ import org.apache.camel.ProducerTemplate;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.support.SimpleRegistry;
 import ru.datana.camel.demo.bean.RestBean;
+import ru.datana.camel.demo.bean.RestPostTransformerBean;
 import ru.datana.camel.demo.bean.S7Bean;
 import ru.datana.camel.demo.bean.S7PostProcessorBean;
 import ru.datana.camel.demo.route.FileRoute;
@@ -22,6 +23,7 @@ public class DemoDatanaCamelApp {
         registry.bind("s7Bean", S7Bean.class);
         registry.bind("s7PostProcessorBean", S7PostProcessorBean.class);
         registry.bind("restBean", RestBean.class);
+        registry.bind("restTransBean", RestPostTransformerBean.class);
 
         doS7(registry);
         doRest(registry);
