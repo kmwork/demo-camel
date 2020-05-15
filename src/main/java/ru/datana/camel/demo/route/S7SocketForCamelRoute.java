@@ -4,6 +4,9 @@ import org.apache.camel.builder.RouteBuilder;
 import ru.datana.camel.demo.bean.S7Bean;
 import ru.datana.camel.demo.bean.S7PostProcessorBean;
 
+/**
+ * Роутер для Сименса --> JMS
+ */
 public class S7SocketForCamelRoute extends RouteBuilder {
 
     @Override

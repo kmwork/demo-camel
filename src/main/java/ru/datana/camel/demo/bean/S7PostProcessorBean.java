@@ -9,6 +9,9 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.util.Arrays;
 
+/**
+ * Бин обработки сименс данных
+ */
 @Slf4j
 @Component
 public class S7PostProcessorBean {

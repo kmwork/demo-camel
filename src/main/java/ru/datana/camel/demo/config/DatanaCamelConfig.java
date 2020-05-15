@@ -10,6 +10,9 @@ import org.springframework.context.annotation.Bean;
 
 import javax.annotation.PostConstruct;
 
+/**
+ * Настройка JMS
+ */
 @Slf4j
 public class DatanaCamelConfig {
 

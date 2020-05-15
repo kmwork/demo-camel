@@ -4,6 +4,9 @@ import org.apache.camel.builder.RouteBuilder;
 import ru.datana.camel.demo.bean.RestBean;
 import ru.datana.camel.demo.bean.RestPostTransformerBean;
 
+/**
+ * Роутер для REST -> JMS
+ */
 public class RestToMQRoute extends RouteBuilder {
 
     @Override

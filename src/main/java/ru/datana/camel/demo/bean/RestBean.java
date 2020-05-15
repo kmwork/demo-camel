@@ -6,6 +6,9 @@ import org.apache.camel.Header;
 import org.springframework.stereotype.Component;
 import ru.datana.camel.demo.service.RestClient;
 
+/**
+ * Бин: обращение к сервису RESTfull Веб-сервису
+ */
 @Slf4j
 @Component
 public class RestBean {

@@ -9,8 +9,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 import ru.datana.camel.demo.config.DatanaCamelConfig;
+import ru.datana.camel.demo.route.FileRoute;
 import ru.datana.camel.demo.route.MqToKafkaRoute;
 import ru.datana.camel.demo.route.RestToMQRoute;
+import ru.datana.camel.demo.route.S7SocketForCamelRoute;
 
 @Slf4j
 @SpringBootApplication
@@ -42,9 +44,7 @@ public class DemoDatanaCamelApp implements CommandLineRunner {
         try {
             log.info(prefixLog + " start");
             camelContext.addRoutes(routeBuilder);
-            camelContext.start();
             doSleep();
-            camelContext.stop();
         } catch (Exception e) {
             log.error(prefixLog + " error", e);
         } finally {
@@ -57,12 +57,20 @@ public class DemoDatanaCamelApp implements CommandLineRunner {
 
         //не работает Siemens c удалённой JMS -- админы разнесли в разные VPN
         //пример как пытается и не падает сервис
-        //doService("[Step:S7]", new S7SocketForCamelRoute());
+        //работа с Контроллерами Сименса
+        doService("[Step:S7]", new S7SocketForCamelRoute());
 
 
+        //чтение RESTfull Сервиса и публикацию в очередь ActiveMQ
         doService("[Step:Rest]", new RestToMQRoute());
+
+        //работа с ActiveMQ (JMS Брокер) - чтение из ActiveMQ и публикация в Кафку
         doService("[Step:ActiveMQ]", new MqToKafkaRoute());
-        //doService("[Step:File]", new FileRoute());
+
+        // работа с файлами
+        doService("[Step:File]", new FileRoute());
+
+        //грубый выход из приложения
         System.exit(0);
     }
 }

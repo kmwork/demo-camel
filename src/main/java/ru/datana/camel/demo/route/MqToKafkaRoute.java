@@ -2,6 +2,9 @@ package ru.datana.camel.demo.route;
 
 import org.apache.camel.builder.RouteBuilder;
 
+/**
+ * Роутер JMS --> Кафка
+ */
 public class MqToKafkaRoute extends RouteBuilder {
 
     @Override

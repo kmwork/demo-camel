@@ -6,6 +6,9 @@ import org.apache.camel.Handler;
 import org.apache.camel.Header;
 import org.springframework.stereotype.Component;
 
+/**
+ * Бин: Обработка рест запроса
+ */
 @Slf4j
 @Component
 public class RestPostTransformerBean {

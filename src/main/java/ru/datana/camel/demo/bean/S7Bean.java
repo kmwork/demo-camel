@@ -8,6 +8,9 @@ import ru.datana.camel.demo.service.S7Api;
 
 import java.io.IOException;
 
+/**
+ * Бин: Получение от Сименса
+ */
 @Slf4j
 @Component
 public class S7Bean {

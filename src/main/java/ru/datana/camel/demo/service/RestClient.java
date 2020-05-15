@@ -8,6 +8,9 @@ import org.apache.camel.impl.DefaultCamelContext;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Клиент на Рест
+ */
 public class RestClient {
     public String getRestResponse(long id) throws Exception {
 
