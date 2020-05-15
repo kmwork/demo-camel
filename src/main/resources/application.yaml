@@ -1,0 +1,32 @@
+camel:
+  component:
+    activemq:
+      broker-url: tcp://172.29.40.42:61616
+      auto-startup: true
+    kafka:
+      brokers: 172.29.40.42:9092
+  springboot:
+    main-run-controller: true
+    jmx-enabled: false
+spring:
+  main:
+    allow-bean-definition-overriding: true
+    banner-mode: 'off'
+
+debug: true
+logging:
+  level:
+    org:
+      hibernate:
+        engine:
+          transaction: DEBUG
+        SQL: DEBUG
+      springframework: DEBUG
+    ru: DEBUG
+    sql: debug
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n'
+
+
+
+
