@@ -4,8 +4,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.camel.Body;
 import org.apache.camel.Handler;
 import org.apache.camel.Header;
+import org.springframework.stereotype.Component;
 
 @Slf4j
+@Component
 public class RestPostTransformerBean {
 
     @Handler

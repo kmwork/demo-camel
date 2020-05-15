@@ -1,8 +1,8 @@
+datana:
+  jms:
+    broker-url: tcp://172.29.40.42:61616
 camel:
   component:
-    activemq:
-      broker-url: tcp://172.29.40.42:61616
-      auto-startup: true
     kafka:
       brokers: 172.29.40.42:9092
   springboot:

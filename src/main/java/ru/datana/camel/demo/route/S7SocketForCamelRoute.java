@@ -9,11 +9,7 @@ public class S7SocketForCamelRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
 
-//        from("timer:kostya?period=5000")
-//                .to("bean:s7Bean")
-//                .log("response = ${body}");
-
-        from("direct:start")
+        from("timer://bar?fixedRate=true&delay=0&period=10000")
                 .setHeader("request-id", () -> System.nanoTime())
                 .bean(S7Bean.class)
                 .bean(S7PostProcessorBean.class)
